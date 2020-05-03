@@ -8,6 +8,12 @@ import * as serviceWorker from './serviceWorker';
 //the Message would be called in ReactDOM.render as 
 //a Tag name 
 
+let bookList = [
+  {"title" : "Good Morning", "author" : "Heorge Feil","pages" : 500},
+  {"title" : "Good Afternoon", "author" : "Heorge Feil","pages" : 500},
+  {"title" : "Good Night", "author" : "Heorge Feil","pages" : 500}
+]
+
 const Book = ({title, author, pages}) => {
   return (
     <section>
@@ -17,20 +23,19 @@ const Book = ({title, author, pages}) => {
     </section>
   )
 }
-const Library = () => {
+const Library = ({books}) => {
   return(
     <div>
       Welcome to Library
-      <Book title="the sun rises" author="ABC LID" pages={500}/>
-      <Book title="Harry Potter" author="GSUW" pages={400}/>
-      <Book title="Road less travelled" author="Harry George" pages={200}/>
-      <Book title="Lion King" author="Madam Nook" pages={100}/>
+     {books.map(
+       book =>  <Book title ={book.title} author = {book.author} pages ={book.pages} />
+     )}
     </div>
   )
 }
 
 ReactDOM.render(
-  <Library />,
+  <Library books={bookList} />,
   document.getElementById('root')
 )
 
