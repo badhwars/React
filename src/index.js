@@ -23,15 +23,35 @@ const Book = ({title, author, pages}) => {
     </section>
   )
 }
-const Library = ({books}) => {
+class Library extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      open: true
+    }
+    this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
+  }
+  toggleOpenClosed() {
+    this.setState({
+      open: !this.state.open
+      
+    })
+  }
+  render() {
+  
+  const { books } = this.props
   return(
     <div>
       Welcome to Library
+      <h2> Library is {this.state.open ? 'open' : 'closed'}</h2>
      {books.map(
-       book =>  <Book title ={book.title} author = {book.author} pages ={book.pages} />
+       (book,i) =>  <Book key ={i} title ={book.title} author = {book.author} pages ={book.pages} />
      )}
+
+     <button onClick = {this.toggleOpenClosed}>Change</button>
     </div>
   )
+}
 }
 
 ReactDOM.render(
