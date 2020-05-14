@@ -1,1 +1,2 @@
-Learning React from LinkedIn Learning. The coding is licated in src/index.js file
+Learning React from online resources such as scrimba and LinkedIn Learning
+The code is intended for practice purposes only!!!
